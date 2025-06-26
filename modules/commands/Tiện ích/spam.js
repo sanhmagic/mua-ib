@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "spam",
+  name: "treo",
   version: "1.0.0",
   hasPermssion: 3,
   credits: "Vtuan",
@@ -8,7 +8,7 @@ module.exports.config = {
   usages: "",
   cooldowns: 1,
   envConfig: {
-    spamDelay: 2  
+    spamDelay: 5  
   }
 };
 
@@ -28,7 +28,7 @@ module.exports.run = async function ({ api, event, args }) {
   } 
   if (!spamThreads.has(threadID)) {
     spamThreads.add(threadID);
-    api.sendMessage(`Bắt đầu spam!`, threadID, messageID);
+    api.sendMessage(`Bắt đầu treo!`, threadID, messageID);
     while (spamThreads.has(threadID)) {
       await delay(this.config.envConfig.spamDelay * 1000);
       if (spamThreads.has(threadID)) {
